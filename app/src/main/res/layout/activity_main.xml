@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mainAct"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#0A0E21"
+    android:fitsSystemWindows="true"
     android:paddingTop="16dp">
 
     <TextView
         android:id="@+id/text1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:gravity="center"
         android:text="B &amp; O BMI CALCULATOR"
         android:textColor="@color/white"
@@ -22,9 +25,9 @@
     <LinearLayout
         android:id="@+id/maleCard"
         android:layout_width="0dp"
-        android:layout_height="175dp"
+        android:layout_height="215dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="35dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/bg_card"
         android:gravity="center"
@@ -35,8 +38,8 @@
 
         <ImageView
             android:id="@+id/maleImage"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:src="@drawable/male_symbol"
             android:tint="@color/white"
             app:tint="@color/white" />
@@ -47,16 +50,16 @@
             android:layout_marginTop="12dp"
             android:text="MALE"
             android:textColor="@color/grey"
-            android:textSize="16sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/femaleCard"
         android:layout_width="0dp"
-        android:layout_height="175dp"
+        android:layout_height="215dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="35dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/bg_card"
         android:gravity="center"
@@ -67,8 +70,8 @@
 
         <ImageView
             android:id="@+id/femaleImage"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:src="@drawable/female_symbol"
             android:tint="@color/white"
             app:tint="@color/white" />
@@ -79,16 +82,16 @@
             android:layout_marginTop="12dp"
             android:text="FEMALE"
             android:textColor="@color/grey"
-            android:textSize="16sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/heightCard"
         android:layout_width="0dp"
-        android:layout_height="150dp"
+        android:layout_height="165dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="35dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/bg_card"
         android:gravity="center"
@@ -131,24 +134,29 @@
                 android:textSize="14sp" />
         </LinearLayout>
 
-        <SeekBar
-            android:id="@+id/heightSeekBar"
+        <com.google.android.material.slider.Slider
+            android:id="@+id/heightSlider"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:max="100"
-            android:progress="73"
-            android:progressBackgroundTint="#4C4F5E"
-            android:progressTint="#6C5CE7"
-            android:thumbTint="#6C5CE7" />
+
+            android:value="73"
+            android:valueFrom="50"
+            android:valueTo="100"
+            android:stepSize="1"
+
+            app:trackColorActive="#6C5CE7"
+            app:trackColorInactive="#4C4F5E"
+            app:thumbColor="#6C5CE7" />
+
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/weightCard"
         android:layout_width="0dp"
-        android:layout_height="175dp"
+        android:layout_height="215dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="35dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/bg_card"
         android:gravity="center"
@@ -189,7 +197,7 @@
                 android:gravity="center"
                 android:text="-"
                 android:textColor="@color/white"
-                android:textSize="24sp"
+                android:textSize="28sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -201,7 +209,7 @@
                 android:gravity="center"
                 android:text="+"
                 android:textColor="@color/white"
-                android:textSize="24sp"
+                android:textSize="28sp"
                 android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
@@ -209,9 +217,9 @@
     <LinearLayout
         android:id="@+id/ageCard"
         android:layout_width="0dp"
-        android:layout_height="175dp"
+        android:layout_height="215dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="35dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/bg_card"
         android:gravity="center"
@@ -252,7 +260,7 @@
                 android:gravity="center"
                 android:text="-"
                 android:textColor="@color/white"
-                android:textSize="24sp"
+                android:textSize="28sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -264,15 +272,15 @@
                 android:gravity="center"
                 android:text="+"
                 android:textColor="@color/white"
-                android:textSize="24sp"
+                android:textSize="28sp"
                 android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
 
     <Button
-        android:id="@+id/btnCalculate"
+        android:id="@+id/btnReCalculate"
         android:layout_width="0dp"
-        android:layout_height="60dp"
+        android:layout_height="100dp"
         android:background="@drawable/bg_button"
         android:text="CALCULATE"
         android:gravity="center"
