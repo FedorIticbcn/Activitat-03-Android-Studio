@@ -6,10 +6,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.updatePadding
 
 class ActivityResultat : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,15 +15,10 @@ class ActivityResultat : AppCompatActivity() {
         setContentView(R.layout.activity_resultat)
 
         val rootAct = findViewById<ConstraintLayout>(R.id.resultAct)
-        ViewCompat.setOnApplyWindowInsetsListener(rootAct) { view, windowInsets ->
-            val insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
-            view.updatePadding(
-                top = insets.top,
-                bottom = insets.bottom,
-                left = insets.left,
-                right = insets.right
-            )
-            WindowInsetsCompat.CONSUMED
+
+        if (!intent.hasExtra("BMI")) {
+            finish()
+            return
         }
 
         val bmi = intent.getDoubleExtra("BMI", 0.0)

@@ -3,13 +3,11 @@ package com.example.bmi
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.ComponentActivity
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.updatePadding
 import com.google.android.material.slider.Slider
 
 class MainActivity : ComponentActivity() {
@@ -20,19 +18,17 @@ class MainActivity : ComponentActivity() {
         setContentView(R.layout.activity_main)
 
         val mainAct = findViewById<ConstraintLayout>(R.id.mainAct)
+        val maleCard = findViewById<LinearLayout>(R.id.maleCard)
+        val femaleCard = findViewById<LinearLayout>(R.id.femaleCard)
 
-        ViewCompat.setOnApplyWindowInsetsListener(mainAct) { view, windowInsets ->
+        maleCard.setOnClickListener {
+            maleCard.isSelected = true
+            femaleCard.isSelected = false
+        }
 
-            val insets = windowInsets.getInsets(
-                WindowInsetsCompat.Type.systemBars()
-            )
-            view.updatePadding(
-                top = insets.top,
-                bottom = insets.bottom,
-                left = insets.left,
-                right = insets.right
-            )
-            WindowInsetsCompat.CONSUMED
+        femaleCard.setOnClickListener {
+            femaleCard.isSelected = true
+            maleCard.isSelected = false
         }
 
         val weightValue = findViewById<TextView>(R.id.weightValue)
